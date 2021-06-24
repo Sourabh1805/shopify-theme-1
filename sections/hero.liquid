@@ -1,0 +1,40 @@
+<!-- Hero Section-->
+<section class="hero hero-home no-padding">
+    <!-- Hero Slider-->
+    
+    <div class="owl-carousel owl-theme hero-slider">
+      {%for block in section.blocks %}
+      <div style="background: url({{block.settings.slide_image|img_url:'2048x'}});" class="item d-flex align-items-center has-pattern">
+        <div class="container">
+          <div class="row">
+            {{block.settings.slide_textarea}}
+         
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+  </section>
+
+  {%schema%}
+  {
+      "blocks":[
+      {
+        "type": "text",
+        "name":"Slider",
+        "settings":[
+        {
+            "id":"slide_image",
+            "type": "image_picker",
+            "label": "Slider Image"
+        },
+        {
+          "id": "slide_textarea",
+          "type": "textarea",
+          "label": "Slide Text"
+        }
+        ]
+      }
+      ]
+  }
+  {%endschema%}

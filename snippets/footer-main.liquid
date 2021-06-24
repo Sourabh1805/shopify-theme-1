@@ -1,0 +1,79 @@
+<div class="main-block">
+  <div class="container">
+    <div class="row">
+      <div class="info col-lg-4">
+        <div class="logo"><img src="{{settings.footer_logo | img_url: '2048x'}}" alt="..."></div>
+        <p>{{settings.footer_blurb}}</p>
+        <ul class="social-menu list-inline">
+          {% if settings.footer_facebook_icon.size > 0 %}
+            <li class="list-inline-item"><a href="{{settings.footer_facebook_icon_link}}" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
+          {% endif %}
+          
+          {% if settings.footer_twitter_icon.size > 0 %}
+            <li class="list-inline-item"><a href="{{settings.footer_twitter_icon_link}}" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
+          {% endif %}
+
+          {% if settings.footer_instagram_icon.size > 0 %}
+            <li class="list-inline-item"><a href="{{settings.footer_instagram_icon_link}}" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
+          {% endif %}
+
+          {% if settings.footer_pinterest_icon.size > 0 %}
+            <li class="list-inline-item"><a href="{{settings.footer_pinterest_icon_link}}" target="_blank" title="pinterest"><i class="fa fa-pinterest"></i></a></li>
+          {% endif %}
+
+          {% if settings.footer_vimeo_icon.size > 0 %}
+            <li class="list-inline-item"><a href="{{settings.footer_vimeo_icon_link}}" target="_blank" title="vimeo"><i class="fa fa-vimeo"></i></a></li>
+          {% endif %}
+        </ul>
+      </div>
+      <div class="site-links col-lg-2 col-md-6">
+        <h5 class="text-uppercase">Shop</h5>
+        <ul class="list-unstyled">
+          <li> <a href="#">For Women</a></li>
+          <li> <a href="#">For Men</a></li>
+          <li> <a href="#">Stores</a></li>
+          <li> <a href="#">Our Blog</a></li>
+          <li> <a href="#">Shop</a></li>
+        </ul>
+      </div>
+      <div class="site-links col-lg-2 col-md-6">
+        <h5 class="text-uppercase">Company</h5>
+        <ul class="list-unstyled">
+          <li> <a href="#">Login</a></li>
+          <li> <a href="#">Register</a></li>
+          <li> <a href="#">Wishlist</a></li>
+          <li> <a href="#">Our Products</a></li>
+          <li> <a href="#">Checkouts</a></li>
+        </ul>
+      </div>
+      <div class="newsletter col-lg-4">
+        <h5 class="text-uppercase">{{settings.footer_newsletter_header}}</h5>
+        <p>{{settings.footer_newsletter_text}}</p>
+      {% form 'customer' %}
+          <div class="form-group">
+            <input id="contact_email" name="contact[email]" type="email" placeholder="Your Email Address">
+            <button type="submit"> <i class="fa fa-paper-plane"></i></button>
+          </div>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="copyrights">
+  <div class="container">
+    <div class="row d-flex align-items-center">
+      <div class="text col-md-6">
+        <p>&copy; {{'now' | date: '%Y'}} <a href="/" target="_blank">{{shop.name}}</a> All rights reserved.</p>
+      </div>
+      <div class="payment col-md-6 clearfix">
+        <ul class="payment-list list-inline-item pull-right">
+          <li class="list-inline-item"><img src="img/visa.svg" alt="..."></li>
+          <li class="list-inline-item"><img src="img/mastercard.svg" alt="..."></li>
+          <li class="list-inline-item"><img src="img/paypal.svg" alt="..."></li>
+          <li class="list-inline-item"><img src="img/western-union.svg" alt="..."></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

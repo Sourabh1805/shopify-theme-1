@@ -1,0 +1,67 @@
+<section class="men-collection gray-bg">
+  <div class="container">
+    <header class="text-center">
+      <h2 class="text-uppercase"><small>{{section.settings.top_text}}</small>{{section.settings.bottom_text}}</h2>
+    </header>
+    <!-- Products Slider-->
+    <div class="owl-carousel owl-theme products-slider">
+
+      {% assign collection = collections[section.settings.collection] %}
+
+      {% for product in collection.products limit: section.settings.product_limit %}
+        <!-- item-->
+        <div class="item">
+          <div class="product is-gray">
+            <div class="image d-flex align-items-center justify-content-center">
+              <img src="{{product.featured_image.src | img_url: '2048x'}}" alt="product" class="img-fluid">
+              <div class="hover-overlay d-flex align-items-center justify-content-center">
+                <div class="CTA d-flex align-items-center justify-content-center">
+                  <a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a>
+                  <a href="{{product.url}}" class="visit-product active"><i class="icon-search"></i>View</a>
+                  <a href="#" data-toggle="modal" data-target="#exampleModal" class="quick-view"><i class="fa fa-arrows-alt"></i></a></div>
+              </div>
+            </div>
+            <div class="title">
+              <a href="{{product.url}}">
+                <h3 class="h6 text-uppercase no-margin-bottom">{{product.title}}</h3>
+              </a>
+              <span class="price text-muted">{{product.price | money}}</span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "First Collection",
+    "settings": [
+      {
+        "id": "top_text",
+        "type": "text",
+        "label": "Top Text"
+      },
+      {
+        "id": "bottom_text",
+        "type": "text",
+        "label": "Bottom Text"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+      {
+        "id": "product_limit",
+        "type": "range",
+        "label": "Product Limit",
+        "min": 3,
+        "max": 9,
+        "default": 6
+      }
+    ]
+  }
+{% endschema %}

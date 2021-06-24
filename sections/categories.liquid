@@ -1,0 +1,82 @@
+{% assign section_size = section.blocks.size %}
+
+{% if section_size == 1 %}
+  {% assign column_size = "col-lg-12" %}
+{% elsif section_size == 2 %}
+  {% assign column_size = "col-lg-6" %}
+{% else %}
+  {% assign column_size = "col-lg-4" %}
+{% endif %}
+
+<section class="categories">
+  <div class="container">
+    <header class="text-center">
+      <h2 class="text-uppercase"><small>{{section.settings.category_header}}</small>{{section.settings.category_text}}</h2>
+    </header>
+    <div class="row text-left">
+
+      {% for block in section.blocks %}
+        <div class="{{column_size}}">
+          <a href="{{block.settings.banner_link}}">
+            <div style="background-image: url({{block.settings.banner_image | img_url: '2048x'}});" class="item d-flex align-items-end">
+              <div class="content">
+                <h3 class="h5">{{block.settings.banner_header_text}}</h3><span>{{block.settings.banner_text}}</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Category Settings",
+    "settings": [
+      {
+        "id": "category_header",
+        "type": "text",
+        "default": "Category Header",
+        "label": "Category Header"
+      },
+      {
+        "id": "category_text",
+        "type": "text",
+        "default": "Category Text",
+        "label": "Category Text"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Banner",
+        "settings": [
+          {
+            "id": "banner_image",
+            "type": "image_picker",
+            "label": "Banner Image"
+          },
+          {
+            "id": "banner_header_text",
+            "type": "text",
+            "label": "Banner Header Text"
+          },
+          {
+            "id": "banner_text",
+            "type": "text",
+            "label": "Banner Text"
+          },
+          {
+            "id": "banner_link",
+            "type": "url",
+            "label": "Banner Link"
+          }
+        ]
+      }
+    ]
+  }
+
+
+{% endschema %}

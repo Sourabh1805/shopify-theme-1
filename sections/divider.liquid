@@ -1,0 +1,25 @@
+<section style="background: url({{section.settings.background_image | img_url: '2048x'}});" class="divider">
+  <div class="container"> 
+    <div class="row">
+      {{section.settings.divider_textarea}}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Divider",
+    "settings": [
+      {
+        "id": "background_image",
+        "type": "image_picker",
+        "label": "Backgound Image"
+      },
+      {
+        "id": "divider_textarea",
+        "type": "textarea",
+        "label": "Divider Textarea"
+      }
+    ]
+  }
+{% endschema %}
